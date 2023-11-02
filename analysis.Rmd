@@ -9,3 +9,23 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Constants
+
+The data are in this folder:
+
+```{r}
+onedrive <- "~/Library/CloudStorage/OneDrive-OxfordUniversityClinicalResearchUnit/"
+```
+
+## Packages
+
+```{r}
+library(readr)
+```
+
+## Loading the data
+
+```{r}
+st <- read_csv(paste0(onedrive, "GitHub/OUCRU-Modelling/scrub-typhus/Rickettsia_ELISA.csv"))
+```
+
