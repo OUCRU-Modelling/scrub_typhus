@@ -9,6 +9,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 ## Constants
 
 The data are in this folder:
@@ -17,15 +18,47 @@ The data are in this folder:
 onedrive <- "~/Library/CloudStorage/OneDrive-OxfordUniversityClinicalResearchUnit/"
 ```
 
+
 ## Packages
 
-```{r}
+```{r message = FALSE}
 library(readr)
 ```
 
-## Loading the data
+
+## Functions
 
 ```{r}
+hist2 <- function(..., col = 4, n = 100, alpha = .2, main = NA) {
+  hist(..., n = n, main = main, col = adjustcolor(col, alpha), border = col,
+       ylab = "frequency")
+}
+```
+
+
+## Loading the data
+
+```{r message = FALSE}
 st <- read_csv(paste0(onedrive, "GitHub/OUCRU-Modelling/scrub-typhus/Rickettsia_ELISA.csv"))
+```
+
+The data look like this:
+
+```{r}
+st
+```
+
+The last 3 variables:
+
+```{r}
+st[, 12:14]
+```
+
+
+## Analysis
+
+```{r}
+hist2(st$Scrub_Typhus, xlab = "value", main = "scrub typhus")
+hist2(st$Typhus, xlab = "value", main = "typhus")
 ```
 
